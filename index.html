@@ -2043,7 +2043,294 @@ const VIRUSES=[
    does:["Se distribue via de faux sites officiels","Contrôle à distance complet","Exfiltration de fichiers sensibles","Mouvement latéral sur le réseau"],
    syms:["Logiciel téléchargé depuis un site imitant l'officiel","Connexions réseau vers des IP ukrainiennes/russes","Processus suspects","Fichiers sensibles accédés"],
    protect:["Utiliser les signets pour les sites de logiciels","Vérifier l'URL exacte avant de télécharger","Antivirus à jour","Ne pas désactiver Windows Defender"],
-   todo:"Scan avec Malwarebytes. Isole du réseau. Change tous les mots de passe. Signale à l'ANSSI si contexte professionnel sensible."}
+   todo:"Scan avec Malwarebytes. Isole du réseau. Change tous les mots de passe. Signale à l'ANSSI si contexte professionnel sensible."},
+
+  {name:"Snake Keylogger",fr:"Snake Keylogger",aliases:["snake"],type:"Keylogger",threat:4,year:"2020",platforms:["Windows"],
+   desc:"Snake Keylogger est l'un des keyloggers les plus actifs depuis 2020. Il se distribue via des pièces jointes malveillantes et vole les credentials de centaines d'applications.",
+   does:["Enregistre toutes les frappes clavier","Vole les credentials de navigateurs et clients email","Capture le presse-papiers","Prend des screenshots automatiques"],
+   syms:["Comptes email et réseaux sociaux piratés","Activité réseau SMTP suspecte","Processus léger en arrière-plan","Aucun symptôme visible souvent"],
+   protect:["Antivirus à jour","Ne pas ouvrir les pièces jointes Word/Excel inconnues","2FA partout","Gestionnaire de mots de passe"],
+   todo:"Scan avec Malwarebytes. Change tous les mots de passe depuis un autre appareil. Active le 2FA. Vérifie les règles de redirection dans ta messagerie."},
+
+  {name:"Warzone RAT",fr:"Warzone RAT",aliases:["warzone","ave maria"],type:"Trojan",threat:4,year:"2018",platforms:["Windows"],
+   desc:"Warzone RAT (aussi connu sous Ave Maria) est un RAT vendu en MaaS. En 2024, le FBI a arrêté ses créateurs et démantelé son infrastructure.",
+   does:["Contrôle à distance complet du PC","Vol de credentials et keylogging","Contourne l'UAC Windows","Désactive Windows Defender"],
+   syms:["Processus inconnus en arrière-plan","Connexions réseau persistantes","Webcam qui s'active","PC lent"],
+   protect:["Antivirus à jour","Ne pas ouvrir les pièces jointes suspectes","Pare-feu activé","Mises à jour Windows"],
+   todo:"L'infrastructure a été démantelée par le FBI en 2024. Scan avec Malwarebytes. Change tous les mots de passe. Réinstallation Windows recommandée."},
+
+  {name:"Ducktail",fr:"Ducktail",type:"Trojan",threat:4,year:"2021",platforms:["Windows"],
+   desc:"Ducktail est un infostealer ciblant spécifiquement les comptes Facebook Business et les comptes publicitaires Meta. Il est utilisé pour détourner des budgets publicitaires.",
+   does:["Vole les cookies de session Facebook/Meta","Prend le contrôle des comptes publicitaires","Exfiltre les données de paiement liées aux comptes","Ajoute les attaquants comme admins de la page"],
+   syms:["Comptes Facebook Business piratés","Publicités frauduleuses depuis ta page","Dépenses publicitaires non autorisées","Accès admin ajouté à ta page"],
+   protect:["Ne jamais télécharger de fichiers depuis LinkedIn ou messages","Activer les alertes de connexion Meta","2FA sur tous les comptes Meta","Vérifier les admins de ta page régulièrement"],
+   todo:"Révoque immédiatement tous les accès admins suspects sur Meta Business. Change le mot de passe et active le 2FA. Contacte Meta pour signaler la compromission."},
+
+  {name:"SilverFish",fr:"SilverFish",type:"Spyware",threat:5,year:"2020",platforms:["Windows"],
+   desc:"SilverFish est un groupe APT sophistiqué ayant exploité la chaîne d'approvisionnement SolarWinds. Il a compromis des agences gouvernementales et des entreprises Fortune 500.",
+   does:["Accès via supply chain compromise","Espionnage de longue durée (mois/années)","Exfiltration discrète de données sensibles","Utilise l'infrastructure cloud légitime pour le C2"],
+   syms:["Aucun symptôme visible","Détectable uniquement par analyse forensique avancée","Trafic réseau vers des services cloud légitimes","Logs système altérés"],
+   protect:["Audit des logiciels tiers","Zero Trust Architecture","Surveillance des accès cloud","Rotation régulière des credentials"],
+   todo:"Contacter immédiatement l'ANSSI. Audit forensique complet par des experts. Révoquer tous les tokens et certificats. Ne pas tenter de nettoyer sans expertise."},
+
+  {name:"BlackMamba",fr:"BlackMamba",type:"Spyware",threat:4,year:"2023",platforms:["Windows"],
+   desc:"BlackMamba est un keylogger polymorphique généré par IA qui modifie son code à chaque exécution pour éviter la détection. Premier malware IA-généré documenté.",
+   does:["Code qui se modifie à chaque exécution (polymorphique)","Keylogging de toutes les frappes","Exfiltration via Microsoft Teams","Indétectable par les antivirus à signatures"],
+   syms:["Aucun symptôme visible","Indétectable par les antivirus classiques","Activité réseau vers Microsoft Teams","Credentials volés sans explication"],
+   protect:["EDR comportemental (pas basé sur signatures)","Surveillance anomalies réseau","Zero Trust","MFA partout"],
+   todo:"Scan avec un EDR comportemental (CrowdStrike, SentinelOne). Change tous les mots de passe. Audit de sécurité complet. Les antivirus classiques ne le détectent pas."},
+
+  {name:"Godfather",fr:"Godfather",type:"Trojan",threat:4,year:"2021",platforms:["Android"],
+   desc:"Godfather est un trojan bancaire Android très sophistiqué ciblant 400+ apps bancaires dans 16 pays. Il enregistre l'écran et imite Google Play Protect pour paraître légitime.",
+   does:["Imite Google Play Protect pour inspirer confiance","Overlay attacks sur 400+ apps bancaires","Enregistrement d'écran et keylogging","Interception des codes 2FA SMS"],
+   syms:["Fausse notification Google Play Protect","Apps bancaires avec écrans superposés","Transactions non autorisées","Batterie qui se vide rapidement"],
+   protect:["Play Store officiel uniquement","Méfie-toi des notifications Google Play Protect inattendues","2FA par application (pas SMS)","Antivirus Android récent"],
+   todo:"Réinitialise d'usine le téléphone. Change tous les mots de passe bancaires depuis un autre appareil. Contacte ta banque. Active le 2FA par application."},
+
+  {name:"Carbanak 2.0",fr:"Carbanak 2.0",type:"Trojan",threat:5,year:"2016",platforms:["Windows"],
+   desc:"Carbanak 2.0 a étendu les cibles du groupe FIN7 au-delà des banques vers la restauration, l'hôtellerie et la vente au détail. Il a volé des centaines de millions de données de cartes.",
+   does:["Spear-phishing ultra-ciblé contre les employés","Capture des données de cartes bancaires sur les POS","Contrôle à distance des systèmes de caisse","Mouvement latéral silencieux pendant des mois"],
+   syms:["Données de carte bancaire compromises","Processus suspects sur les systèmes POS","Connexions nocturnes vers des IP inconnues","Antivirus qui se désactive"],
+   protect:["Formation anti-phishing intensive","Segmentation réseau des systèmes POS","Surveillance comportementale 24/7","Chiffrement point à point des données cartes"],
+   todo:"Incident critique. Isole les systèmes POS. Contacte l'ANSSI et les réseaux de cartes (Visa, Mastercard). Expertise forensique spécialisée obligatoire."},
+
+  {name:"DoppelPaymer",fr:"DoppelPaymer",type:"Ransomware",threat:5,year:"2019",platforms:["Windows"],
+   desc:"DoppelPaymer a attaqué des hôpitaux, universités et gouvernements. En 2021, une femme est décédée en Allemagne suite à l'attaque d'un hôpital — premier décès lié à un ransomware.",
+   does:["Chiffrement rapide des fichiers","Double extorsion (vol avant chiffrement)","Cible les hôpitaux et infrastructures critiques","Désactive les sauvegardes automatiques"],
+   syms:["Fichiers avec extension .doppeled","Note README2.html","Systèmes hospitaliers inaccessibles","Sauvegardes Windows supprimées"],
+   protect:["Segmentation réseau hospitalière","Sauvegardes air-gap","Formation anti-phishing","EDR avancé"],
+   todo:"URGENCE si contexte médical. Isole tout le réseau. Contacte l'ANSSI. Des membres du groupe ont été arrêtés en 2023. Vérifie NoMoreRansom.org."},
+
+  {name:"Jupyter Infostealer",fr:"Jupyter",type:"Spyware",threat:4,year:"2020",platforms:["Windows"],
+   desc:"Jupyter (aussi appelé Polazert) est un infostealer qui se spécialise dans le vol de credentials des navigateurs Chromium et Firefox, ainsi que des portefeuilles crypto.",
+   does:["Vol de credentials Chromium et Firefox","Exfiltre les wallets crypto","Backdoor persistante sur le système","Télécharge des payloads supplémentaires"],
+   syms:["Comptes Google et Firefox compromis","Wallet crypto vidé","Processus .NET inconnus","Connexions vers des C2 russes"],
+   protect:["Antivirus à jour","Gestionnaire de mots de passe dédié","Wallet hardware","Ne pas télécharger de logiciels piratés"],
+   todo:"Scan avec Malwarebytes. Change tous les mots de passe des navigateurs. Sécurise les wallets crypto. Active le 2FA partout."},
+
+  {name:"XLoader",fr:"XLoader",type:"Spyware",threat:4,year:"2020",platforms:["Windows","Mac"],
+   desc:"XLoader est l'évolution de FormBook ciblant à la fois Windows ET Mac. Vendu 49$ pour Mac sur des forums, il est l'un des premiers infostealers Mac accessibles aux débutants.",
+   does:["Vol de credentials navigateurs sur Windows et Mac","Keylogging multiplateforme","Capture de screenshots","Exfiltration vers des serveurs C2 disséminés"],
+   syms:["Comptes compromis sur Mac et Windows","Activité réseau inhabituelle","Processus .NET ou Mono suspects","Aucun symptôme visible souvent"],
+   protect:["Antivirus sur Mac (Malwarebytes Mac)","Ne pas désactiver Gatekeeper","Sources officielles uniquement","Gestionnaire de mots de passe"],
+   todo:"Scan avec Malwarebytes (Windows et Mac). Change tous les mots de passe. Active le 2FA. Réinstallation recommandée sur les deux plateformes."},
+
+  {name:"Bumblebee",fr:"Bumblebee",type:"Trojan",threat:4,year:"2022",platforms:["Windows"],
+   desc:"Bumblebee est un loader sophistiqué qui a remplacé BazarLoader pour distribuer des ransomwares et des outils post-exploitation comme Cobalt Strike.",
+   does:["Se distribue via phishing avec fichiers ISO/LNK","Charge Cobalt Strike, Meterpreter ou des ransomwares","Techniques d'évasion avancées (AMSI bypass)","Exécution directe en mémoire (fileless)"],
+   syms:["Fichiers ISO ou LNK ouverts récemment","Activité PowerShell suspecte","Processus rundll32.exe avec comportement anormal","Connexions réseau HTTPS vers des domaines inconnus"],
+   protect:["Bloquer l'exécution des fichiers LNK et ISO suspects","Antivirus comportemental","Désactiver l'AutoRun","AMSI activé"],
+   todo:"Scan avec Malwarebytes ou HitmanPro. Analyse les processus avec Process Hacker. Isole du réseau si Cobalt Strike détecté. Réinstallation recommandée."},
+
+  {name:"GuLoader",fr:"GuLoader",type:"Trojan",threat:4,year:"2019",platforms:["Windows"],
+   desc:"GuLoader est un downloader très répandu qui se spécialise dans l'évasion des antivirus pour distribuer des RATs et infostealers comme Agent Tesla et Remcos.",
+   does:["Contourne les antivirus avec des techniques avancées","Télécharge des RATs et infostealers","Utilise Google Drive et OneDrive comme C2","Exécution en mémoire uniquement"],
+   syms:["Processus PowerShell suspects","Téléchargements depuis Google Drive","Antivirus qui ne détecte rien malgré des comportements suspects","Activité réseau vers le cloud Microsoft/Google"],
+   protect:["EDR comportemental","Surveillance des connexions cloud sortantes","Filtrage des emails avec pièces jointes","AMSI activé"],
+   todo:"Scan avec un EDR comportemental. Analyse les connexions cloud sortantes. Réinstallation recommandée car difficile à détecter et supprimer proprement."},
+
+  {name:"Icedid Bokbot",fr:"IcedID Bokbot",type:"Trojan",threat:4,year:"2017",platforms:["Windows"],
+   desc:"IcedID Bokbot est la version améliorée d'IcedID avec des capacités de fraude bancaire renforcées. Il crée un tunnel chiffré pour intercepter le trafic bancaire.",
+   does:["Crée un proxy HTTPS pour intercepter les sessions bancaires","Certificats SSL forgés pour les sites bancaires","Vol de credentials en temps réel","Sert de loader pour d'autres malwares"],
+   syms:["Certificats SSL suspects sur les sites bancaires","Navigateur qui se comporte bizarrement","Transactions non autorisées","Processus inconnus au démarrage"],
+   protect:["Vérifier les certificats des sites bancaires (cliquer sur le cadenas)","2FA par application","Antivirus à jour","Mises à jour navigateur"],
+   todo:"Scan avec Malwarebytes. Contacte ta banque immédiatement. Change les mots de passe bancaires depuis un autre appareil. Réinstallation recommandée."},
+
+  {name:"PlugX",fr:"PlugX",type:"Trojan",threat:5,year:"2008",platforms:["Windows"],
+   desc:"PlugX est un RAT utilisé depuis 15 ans par des groupes APT chinois (APT10, APT41). Il est connu pour sa persistance exceptionnelle et sa capacité à se cacher dans des logiciels légitimes.",
+   does:["Se cache dans des processus légitimes (DLL hijacking)","Contrôle à distance complet et persistant","Exfiltration de fichiers sensibles sur le long terme","Survit aux redémarrages et aux réinstallations partielles"],
+   syms:["Connexions réseau vers des IP chinoises","DLLs légitimes avec comportement suspect","Fichiers sensibles accédés à des heures inhabituelles","Activité système nocturne"],
+   protect:["Antivirus avec détection comportementale","Surveiller les DLLs chargées par les processus","Audit des connexions réseau sortantes","EDR avancé"],
+   todo:"Scan avec Kaspersky ou Malwarebytes. Analyse les DLLs suspectes avec Process Monitor. Réinstallation complète recommandée. Signale à l'ANSSI si contexte sensible."},
+
+  {name:"Sidewinder APT",fr:"SideWinder",type:"Spyware",threat:5,year:"2012",platforms:["Windows","Android"],
+   desc:"SideWinder est un groupe APT indien actif depuis 2012, ciblant les gouvernements et armées d'Asie du Sud. Il utilise des documents Office piégés très sophistiqués.",
+   does:["Spear-phishing avec documents Office ultra-ciblés","Exploitation de failles Office pour exécuter du code","Exfiltration de documents gouvernementaux","Backdoors persistantes"],
+   syms:["Document Office qui s'ouvre avec un message d'erreur","Processus mshta.exe ou wscript.exe inhabituels","Connexions réseau vers des domaines .com suspects","Fichiers sensibles exfiltrés"],
+   protect:["Désactiver les macros Office","Patches Office à jour","Formation anti-spear-phishing","EDR avancé"],
+   todo:"Scan avec Malwarebytes. Isole du réseau. Signale à l'ANSSI si contexte gouvernemental ou militaire. Expertise forensique recommandée."},
+
+  {name:"AsyncRAT 2024",fr:"AsyncRAT 2024",type:"Trojan",threat:4,year:"2024",platforms:["Windows"],
+   desc:"La version 2024 d'AsyncRAT utilise des techniques d'injection HTML pour se distribuer via des emails d'hameçonnage. Il intègre désormais des modules de vol crypto.",
+   does:["Distribution via HTML smuggling dans les emails","Contrôle à distance complet","Module de vol de wallets crypto intégré","Keylogging et capture d'écran"],
+   syms:["Fichier HTML reçu par email qui télécharge quelque chose","Processus .NET inconnus","Wallet crypto compromis","Connexions réseau persistantes"],
+   protect:["Filtrer les pièces jointes HTML dans les emails","Antivirus à jour","Wallet hardware pour les cryptos","2FA partout"],
+   todo:"Scan avec Malwarebytes. Déplace les cryptos vers un hardware wallet d'urgence. Change tous les mots de passe. Réinstallation recommandée."},
+
+  {name:"Typhon Stealer",fr:"Typhon Stealer",type:"Spyware",threat:4,year:"2022",platforms:["Windows"],
+   desc:"Typhon Stealer est un infostealer écrit en C# capable de voler des données de 200+ applications. Il inclut un module de minage de cryptomonnaies en bonus.",
+   does:["Vol de credentials de 200+ applications","Mine des cryptomonnaies en arrière-plan","Capture de screenshots","Exfiltre les wallets crypto et NFTs"],
+   syms:["PC lent avec CPU élevé (minage)","Comptes compromis","Wallet crypto vidé","NFTs disparus"],
+   protect:["Antivirus à jour","Ne pas télécharger de mods ou cracks","Wallet hardware","2FA partout"],
+   todo:"Scan avec Malwarebytes. Change tous les mots de passe. Sécurise les wallets. Si NFTs volés : documente tout pour une éventuelle traçabilité blockchain."},
+
+  {name:"Xenotime",fr:"Xenotime",type:"Virus",threat:5,year:"2017",platforms:["Windows"],
+   desc:"Xenotime est le groupe derrière Triton/TRISIS. Après les systèmes pétroliers saoudiens, il a été détecté en train de scanner des infrastructures électriques américaines.",
+   does:["Cible les systèmes de sécurité industriels","Peut provoquer des accidents physiques mortels","Reconnaissance des infrastructures critiques","Implants persistants dans les systèmes ICS"],
+   syms:["Comportements anormaux des systèmes de sécurité","Connexions réseau suspectes vers les systèmes SIS","Alertes inexpliquées sur les automates","Accès non autorisés aux systèmes de contrôle"],
+   protect:["Isolation totale des systèmes industriels","Authentification forte sur les accès ICS","Surveillance 24/7 des anomalies","Plan de réponse aux incidents ICS"],
+   todo:"URGENCE CRITIQUE. Isole physiquement les systèmes. Contacte immédiatement l'ANSSI et l'ICS-CERT. N'interviens pas sans expertise spécialisée en cybersécurité industrielle."},
+
+  {name:"AppleJeus",fr:"AppleJeus",type:"Trojan",threat:5,year:"2018",platforms:["Windows","Mac","Linux"],
+   desc:"AppleJeus est un trojan nord-coréen (groupe Lazarus) ciblant les exchanges de cryptomonnaies. Il se déguise en logiciel de trading légitime pour dérober des millions en crypto.",
+   does:["Se déguise en logiciel de trading crypto légitime","Vole les wallets et credentials des exchanges","Exfiltre des millions en cryptomonnaies","Cible Windows, Mac et Linux simultanément"],
+   syms:["Logiciel de trading qui demande des permissions inhabituelles","Wallet crypto vidé","Connexions vers des serveurs nord-coréens","Processus suspects après installation d'un outil de trading"],
+   protect:["Télécharger les outils de trading uniquement depuis les sites officiels","Wallet hardware pour les cryptos","Vérifier la réputation des logiciels de trading","Antivirus multiplateforme"],
+   todo:"Déplace immédiatement les cryptos restantes vers un hardware wallet. Change les mots de passe des exchanges. Scan avec Malwarebytes. Les cryptos volées sont irrécupérables."},
+
+  {name:"Lazarus APT",fr:"Lazarus Group",type:"Trojan",threat:5,year:"2009",platforms:["Windows","Mac","Linux"],
+   desc:"Lazarus est le groupe de hackers nord-coréen le plus actif au monde. Il a volé plus de 2 milliards en cryptomonnaies pour financer le programme nucléaire nord-coréen.",
+   does:["Attaques ciblées sur les exchanges crypto","Espionnage gouvernemental et industriel","Distribution de ransomwares (WannaCry)","Attaques sur les banques mondiales (SWIFT)"],
+   syms:["Connexions vers des IP nord-coréennes ou chinoises","Documents Office malveillants reçus","Wallet crypto vidé soudainement","Accès SWIFT non autorisés (pour les banques)"],
+   protect:["Formation anti-spear-phishing","Isolation des systèmes SWIFT","Hardware wallet pour les cryptos","EDR avancé multiplateforme"],
+   todo:"Incident de niveau critique. Contacte l'ANSSI et les autorités. Expertise forensique spécialisée obligatoire. Les cryptos volées par Lazarus sont quasi-irrécupérables."},
+
+  {name:"SocGholish",fr:"SocGholish",type:"Trojan",threat:4,year:"2017",platforms:["Windows"],
+   desc:"SocGholish infecte des sites web légitimes compromis et affiche de fausses alertes de mise à jour de navigateur. Des milliers de sites ont été compromis.",
+   does:["Compromet des sites web légitimes","Affiche de fausses alertes 'Mise à jour Chrome requise'","Installe des RATs et injecteurs","Mène à des attaques ransomware"],
+   syms:["Pop-up de mise à jour Chrome sur un site normal","Fichier .js ou .zip téléchargé automatiquement","Processus inconnus après la 'mise à jour'","PC lent avec activité réseau"],
+   protect:["Ne jamais mettre à jour le navigateur depuis une pop-up de site web","Télécharger les mises à jour uniquement depuis les paramètres officiels","Antivirus à jour","Bloquer les scripts .js suspects"],
+   todo:"Ne clique pas sur les fausses alertes de mise à jour. Si déjà cliqué : scan avec Malwarebytes, isole du réseau, change tous les mots de passe."},
+
+  {name:"Raspberry Robin",fr:"Raspberry Robin",type:"Worm",threat:4,year:"2021",platforms:["Windows"],
+   desc:"Raspberry Robin est un ver qui se propage via des clés USB infectées. Il a infecté des centaines de réseaux d'entreprise et est utilisé pour déployer des ransomwares.",
+   does:["Se propage via clés USB (fichiers LNK)","Exploite des failles Windows pour s'élever en privilèges","Télécharge des ransomwares et RATs","Désactive les protections Windows"],
+   syms:["Clé USB qui crée des raccourcis suspects","Processus cmd.exe ou msiexec.exe inhabituels","Activité réseau vers des domaines .onion","Antivirus qui se désactive"],
+   protect:["Désactiver l'AutoRun des clés USB","Antivirus à jour","Ne pas brancher des clés USB inconnues","Restreindre l'exécution depuis les USB"],
+   todo:"Ne branche pas de clé USB inconnue. Scan avec Malwarebytes. Isole du réseau. Analyse les clés USB avec un PC isolé avant utilisation."},
+
+  {name:"Phemedrone Stealer",fr:"Phemedrone",type:"Spyware",threat:4,year:"2023",platforms:["Windows"],
+   desc:"Phemedrone exploitait la faille CVE-2023-36025 de Windows Defender SmartScreen pour contourner les avertissements de sécurité et s'installer silencieusement.",
+   does:["Contourne Windows Defender SmartScreen","Vol de credentials des navigateurs Chromium","Exfiltre les wallets crypto","Vole les données Discord et Telegram"],
+   syms:["Installation silencieuse d'un logiciel sans avertissement","Comptes Discord et Telegram piratés","Wallet crypto compromis","Activité réseau après ouverture d'un fichier .url"],
+   protect:["Patches Windows à jour (CVE-2023-36025 corrigé)","Antivirus à jour","Ne pas ouvrir les fichiers .url inconnus","2FA partout"],
+   todo:"Applique les patches Windows. Scan avec Malwarebytes. Change tous les mots de passe. Révoque les sessions Discord et Telegram. Sécurise les wallets crypto."},
+
+  {name:"LOBSHOT",fr:"LOBSHOT",type:"Trojan",threat:4,year:"2023",platforms:["Windows"],
+   desc:"LOBSHOT se distribue via de fausses publicités Google Ads pour des logiciels légitimes (AnyDesk, TeamViewer). Il inclut un module hVNC pour contrôler le PC à distance invisible.",
+   does:["Distribué via fausses Google Ads","Module hVNC (contrôle invisible sans consentement)","Vol de credentials de 50+ portefeuilles crypto","Persistance via le registre Windows"],
+   syms:["Téléchargement depuis une fausse pub Google","Processus suspect après installation","Wallet crypto vidé","Connexions réseau cachées"],
+   protect:["Télécharger depuis les sites officiels (pas depuis les pubs Google)","Antivirus à jour","Wallet hardware","Vérifier l'URL exacte des sites de logiciels"],
+   todo:"Scan avec Malwarebytes. Déplace les cryptos vers un hardware wallet. Change tous les mots de passe. Réinstallation Windows recommandée."},
+
+  {name:"MoqHao",fr:"MoqHao",type:"Trojan",threat:4,year:"2015",platforms:["Android"],
+   desc:"MoqHao est un trojan Android distribué par des SMS frauduleux. Il se fait passer pour une app de livraison de colis et est actif principalement en Asie et en Europe.",
+   does:["Se distribue via SMS avec faux liens de livraison","Vole les credentials des apps bancaires","Intercepte les SMS incluant les codes 2FA","Accède aux contacts et photos"],
+   syms:["SMS reçu avec un lien de colis","App de livraison suspecte installée","Transactions bancaires non autorisées","SMS envoyés à tous tes contacts"],
+   protect:["Ne jamais installer d'APK depuis un SMS","Play Store officiel uniquement","2FA par application (pas SMS)","Antivirus Android"],
+   todo:"Réinitialise d'usine le téléphone. Préviens tes contacts. Change les mots de passe bancaires. Contacte ta banque pour les transactions frauduleuses."},
+
+  {name:"DarkGate",fr:"DarkGate",type:"Trojan",threat:5,year:"2018",platforms:["Windows"],
+   desc:"DarkGate est un malware tout-en-un (RAT, keylogger, minage crypto, vol de credentials) très utilisé depuis 2023 après la disparition d'Emotet. Il se distribue via Teams et Skype.",
+   does:["Distribution via Microsoft Teams et Skype","Module RAT complet et keylogger","Minage de cryptomonnaies","Vol de credentials navigateurs et 2FA"],
+   syms:["Message Teams ou Skype avec pièce jointe suspecte","PC lent avec CPU élevé","Comptes compromis","Connexions réseau vers des C2"],
+   protect:["Méfier des fichiers envoyés via Teams par des inconnus","Antivirus comportemental","MFA sur Microsoft 365","Formation anti-phishing"],
+   todo:"Scan avec Malwarebytes. Change tous les mots de passe Microsoft 365 et autres. Signale le message Teams suspect à ton IT. Réinstallation recommandée."},
+
+  {name:"FakeUpdates",fr:"FakeUpdates",type:"Trojan",threat:4,year:"2018",platforms:["Windows"],
+   desc:"FakeUpdates (SocGholish v2) est une campagne de distribution massive via de faux messages de mise à jour du navigateur sur des sites compromis. Il a infecté des millions de PC.",
+   does:["Affiche de faux messages de mise à jour sur des sites légitimes compromis","Installe des RATs et loaders","Mène souvent à des infections ransomware","Collecte des informations système"],
+   syms:["Pop-up de mise à jour navigateur sur un site normal","Fichier téléchargé automatiquement","Processus PowerShell ou wscript.exe suspects","PC lent après la fausse mise à jour"],
+   protect:["Mettre à jour le navigateur uniquement via ses paramètres internes","Antivirus à jour","Bloquer les scripts JavaScript suspects","Sensibilisation des utilisateurs"],
+   todo:"Si tu as cliqué sur une fausse mise à jour : scan immédiat avec Malwarebytes. Isole du réseau. Change les mots de passe. Réinstallation recommandée."},
+
+  {name:"AgentTesla v3",fr:"Agent Tesla v3",type:"Spyware",threat:4,year:"2022",platforms:["Windows"],
+   desc:"La version 3 d'Agent Tesla améliore l'évasion des antivirus et ajoute le vol des VPN credentials (OpenVPN, NordVPN, etc.) en plus des navigateurs.",
+   does:["Vol de credentials VPN (OpenVPN, NordVPN, Cisco VPN)","Keylogging avancé avec captures d'écran","Exfiltration via Telegram Bot","Contourne les antivirus avec des techniques avancées"],
+   syms:["Connexion VPN non initiée par toi","Comptes compromis malgré l'utilisation d'un VPN","Activité réseau vers Telegram","Processus .NET inconnus"],
+   protect:["Antivirus comportemental","Ne pas ouvrir les pièces jointes Office inconnues","MFA sur le VPN","Gestionnaire de mots de passe"],
+   todo:"Scan avec Malwarebytes. Change les mots de passe VPN et tous les autres. Active le MFA sur le VPN. Vérifie les accès VPN récents dans les logs."},
+
+  {name:"Infostealer.Banker",fr:"Banker Infostealer",type:"Trojan",threat:4,year:"2015",platforms:["Windows"],
+   desc:"Infostealer.Banker est une famille générique de trojans bancaires qui injectent du code dans le navigateur pour capturer les informations saisies sur les sites bancaires.",
+   does:["Injection de code dans le navigateur (man-in-the-browser)","Capture des credentials bancaires en temps réel","Modifie les pages bancaires pour voler plus d'infos","Envoie les données vers des serveurs criminels"],
+   syms:["Pages bancaires qui semblent différentes","Champs supplémentaires sur les pages de connexion bancaire","Transactions non autorisées","Navigateur lent sur les sites bancaires"],
+   protect:["2FA par application (pas SMS)","Vérifier l'URL et le certificat des sites bancaires","Antivirus à jour","Navigateur à jour"],
+   todo:"Contacte ta banque immédiatement. Scan avec Malwarebytes. Change les mots de passe bancaires depuis un autre appareil. Réinstallation recommandée."},
+
+  {name:"Azorult v4",fr:"AZORult v4",type:"Spyware",threat:4,year:"2020",platforms:["Windows"],
+   desc:"AZORult v4 ajoute le vol de portefeuilles crypto de nouvelle génération (Exodus, Atomic, Electrum) en plus des fonctionnalités classiques d'infostealer.",
+   does:["Vol de 20+ wallets crypto (Exodus, Atomic, Electrum)","Exfiltre les credentials de 100+ apps","Capture les screenshots et le presse-papiers","Peut télécharger d'autres malwares"],
+   syms:["Wallet Exodus ou Atomic vidé","Comptes divers compromis simultanément","Activité réseau suspecte","Aucun symptôme visible souvent"],
+   protect:["Hardware wallet pour les cryptos","Ne pas télécharger de logiciels piratés","Antivirus à jour","2FA partout"],
+   todo:"Déplace immédiatement les cryptos vers un hardware wallet. Change tous les mots de passe. Scan avec Malwarebytes. Les cryptos volées sont irrécupérables."},
+
+  {name:"Zbot Trojan",fr:"Zbot",type:"Trojan",threat:4,year:"2011",platforms:["Windows"],
+   desc:"Zbot est une variante de Zeus utilisée dans des campagnes ciblées contre les PME. Il combine vol bancaire et espionnage industriel léger.",
+   does:["Vol de credentials bancaires professionnels","Injection web sur les sites de banque d'entreprise","Keylogging des systèmes comptables","Exfiltration de documents financiers"],
+   syms:["Virements bancaires non autorisés depuis les comptes pro","Documents comptables accédés","Processus svchost.exe suspects","Navigateur qui se comporte bizarrement"],
+   protect:["2FA sur tous les comptes bancaires professionnels","Antivirus professionnel","PC dédié pour les opérations bancaires","Formation des équipes comptables"],
+   todo:"Contacte ta banque professionnelle IMMÉDIATEMENT. Scan avec Malwarebytes. Change tous les mots de passe. Réinstallation Windows du PC comptabilité."},
+
+  {name:"Kimsuky",fr:"Kimsuky",type:"Spyware",threat:5,year:"2013",platforms:["Windows","Android"],
+   desc:"Kimsuky est un groupe APT nord-coréen spécialisé dans l'espionnage. Il cible les think tanks, gouvernements et chercheurs en nucléaire via du spear-phishing très sophistiqué.",
+   does:["Spear-phishing ultra-ciblé (emails parfaitement rédigés)","Backdoors persistantes sur Windows et Android","Exfiltration de documents sensibles","Espionnage des recherches nucléaires et diplomatiques"],
+   syms:["Email parfaitement rédigé d'un 'collègue' ou 'expert'","Processus suspects après ouverture d'un document","Connexions vers des IP coréennes","Documents sensibles exfiltrés"],
+   protect:["Vérifier par téléphone l'identité d'un expéditeur inattendu","Formation anti-spear-phishing avancée","EDR avancé","Chiffrement des documents sensibles"],
+   todo:"Incident de niveau critique si contexte gouvernemental/nucléaire. Isole du réseau. Contacte l'ANSSI. Expertise forensique spécialisée obligatoire."},
+
+  {name:"ToddyCat",fr:"ToddyCat",type:"Spyware",threat:5,year:"2020",platforms:["Windows"],
+   desc:"ToddyCat est un groupe APT ciblant les gouvernements et organisations militaires en Europe et Asie. Il utilise des exploits Exchange et des backdoors personnalisées.",
+   does:["Exploite des failles Microsoft Exchange","Backdoors persistantes et discrètes","Exfiltration de données pendant des mois","Outils personnalisés indétectables par les antivirus"],
+   syms:["Activité Exchange inhabituelle","Connexions réseau discrètes vers des IP inconnues","Fichiers sensibles accédés la nuit","Aucun symptôme visible généralement"],
+   protect:["Patches Exchange urgents","Surveillance des logs Exchange","EDR avancé","Segmentation réseau"],
+   todo:"Patches Exchange immédiatement. Contacter l'ANSSI. Audit forensique complet. Ne pas tenter de nettoyer sans expertise spécialisée."},
+
+  {name:"Earth Preta",fr:"Earth Preta",type:"Spyware",threat:5,year:"2022",platforms:["Windows"],
+   desc:"Earth Preta (Mustang Panda) est un groupe APT chinois actif depuis 2012. En 2022, il a mené une campagne massive de spear-phishing touchant des gouvernements du monde entier.",
+   does:["Spear-phishing avec leurres géopolitiques (Ukraine, COVID)","Backdoor PlugX et TONEINS","Exfiltration de documents gouvernementaux","Persistance via DLL hijacking"],
+   syms:["Documents sur des sujets géopolitiques qui se comportent bizarrement","Connexions vers des IP chinoises","Processus rundll32.exe suspects","Fichiers gouvernementaux exfiltrés"],
+   protect:["Formation anti-spear-phishing","Patches Office à jour","EDR avancé","Chiffrement des documents sensibles"],
+   todo:"Incident de niveau APT. Isole du réseau. Contacte l'ANSSI. Expertise forensique spécialisée. Ne pas tenter de supprimer sans expertise."},
+
+  {name:"Industroyer2",fr:"Industroyer2",type:"Virus",threat:5,year:"2022",platforms:["Windows"],
+   desc:"Industroyer2 est une version améliorée d'Industroyer déployée contre les infrastructures électriques ukrainiennes en 2022. Il est encore plus ciblé et difficile à détecter.",
+   does:["Cible le protocole IEC-104 des infrastructures électriques","Peut provoquer des pannes électriques à grande échelle","Coordonné avec CaddyWiper pour effacer les traces","Programmé pour se déclencher à une heure précise"],
+   syms:["Comportements anormaux des systèmes électriques","Pannes électriques inexpliquées","Logs SCADA altérés","Connexions réseau suspectes vers les automates"],
+   protect:["Isolation totale des réseaux industriels","Surveillance des protocoles IEC-104","Plan de réponse aux incidents ICS","Sauvegardes des configurations des automates"],
+   todo:"URGENCE CRITIQUE. Isole physiquement tous les systèmes. Contacte l'ANSSI et l'ICS-CERT immédiatement. Expertise ICS/SCADA obligatoire."},
+
+  {name:"EvilGinx",fr:"EvilGinx",type:"Trojan",threat:5,year:"2017",platforms:["Windows","Linux"],
+   desc:"EvilGinx est un framework de phishing proxy qui contourne le 2FA. Il capture les tokens de session en temps réel, permettant d'accéder aux comptes même protégés.",
+   does:["Proxy inverse entre la victime et le vrai site","Capture les cookies de session en temps réel","Contourne totalement le 2FA classique","Accès aux comptes sans connaître le mot de passe"],
+   syms:["Compte piraté malgré le 2FA actif","Session inexpliquée depuis une IP inconnue","Email de connexion suspecte","Aucun symptôme visible au moment de l'attaque"],
+   protect:["Clé physique FIDO2/WebAuthn (seule protection efficace)","Vérifier l'URL exacte du site (pas de faute de frappe)","Gestionnaire de mots de passe avec autofill (refuse les faux sites)","Alertes de connexion activées"],
+   todo:"Révoque TOUTES les sessions actives. Change le mot de passe. Passe impérativement au 2FA par clé physique (YubiKey). Vérifie toutes les activités récentes du compte."},
+
+  {name:"Gootloader",fr:"Gootloader",type:"Trojan",threat:4,year:"2020",platforms:["Windows"],
+   desc:"Gootloader utilise le SEO poisoning pour apparaître en tête des résultats Google avec de faux forums juridiques ou RH. Il cible les professionnels cherchant des modèles de contrats.",
+   does:["SEO poisoning : faux sites en tête de Google","Distribue REvil, Cobalt Strike et d'autres malwares","Persistance via une tâche planifiée Windows","Cible les professionnels (juristes, RH, comptables)"],
+   syms:["Téléchargement d'un 'modèle de contrat' depuis Google","Fichier JavaScript qui s'exécute","Tâche planifiée suspecte créée","Antivirus qui détecte quelque chose dans le profil utilisateur"],
+   protect:["Utiliser des sources officielles pour les modèles de documents","Antivirus à jour","Bloquer l'exécution des fichiers .js","Formation des équipes professionnelles"],
+   todo:"Scan avec Malwarebytes. Supprime les tâches planifiées suspectes. Change tous les mots de passe. Isole du réseau si Cobalt Strike détecté."},
+
+  {name:"Zerobot",fr:"Zerobot",type:"Botnet",threat:4,year:"2022",platforms:["Linux","IoT"],
+   desc:"Zerobot est un botnet IoT écrit en Go qui exploite 21 vulnérabilités différentes pour infecter des routeurs, caméras et autres appareils connectés et lancer des DDoS.",
+   does:["Exploite 21 vulnérabilités IoT différentes","Crée un botnet pour attaques DDoS","Se propage automatiquement","Peut télécharger des modules supplémentaires"],
+   syms:["Appareil IoT qui se comporte bizarrement","Trafic réseau anormal depuis les appareils","Attaques DDoS lancées depuis ton réseau","Connexions vers des IP suspectes"],
+   protect:["Mettre à jour le firmware de TOUS les appareils IoT","Changer les mots de passe par défaut","Isoler les appareils IoT sur un réseau séparé","Surveiller le trafic réseau"],
+   todo:"Mets à jour le firmware. Réinitialise les appareils infectés. Change tous les mots de passe. Isole les appareils IoT sur un VLAN séparé."},
+
+  {name:"HiatusRAT",fr:"HiatusRAT",type:"Trojan",threat:5,year:"2022",platforms:["Linux"],
+   desc:"HiatusRAT cible les routeurs d'entreprise (principalement DrayTek) pour créer un réseau de proxies permettant aux attaquants d'anonymiser leurs opérations mondiales.",
+   does:["Infecte les routeurs DrayTek vulnérables","Transforme le routeur en proxy pour attaquants","Surveillance et interception du trafic réseau","Persistance même après redémarrage"],
+   syms:["Routeur DrayTek qui se comporte bizarrement","Trafic réseau non initié détecté","Connexions vers des IP suspectes","Réinitialisations inexpliquées du routeur"],
+   protect:["Patches DrayTek urgents","Changer le mot de passe admin du routeur","Désactiver l'accès admin à distance","Surveiller les logs du routeur"],
+   todo:"Applique les patches DrayTek immédiatement. Réinitialise d'usine le routeur. Reconfigure avec des mots de passe forts. Surveille le trafic réseau après."},
+
+  {name:"Matanbuchus",fr:"Matanbuchus",type:"Trojan",threat:4,year:"2021",platforms:["Windows"],
+   desc:"Matanbuchus est un loader loué en MaaS qui distribue des malwares comme Cobalt Strike. Il se caractérise par son utilisation de msiexec.exe pour rester discret.",
+   does:["Se distribue via des emails de phishing avec PDF piégés","Utilise msiexec.exe pour une installation discrète","Charge Cobalt Strike ou d'autres RATs","Techniques d'évasion avancées"],
+   syms:["PDF qui lance une installation MSI","Processus msiexec.exe avec comportement suspect","Connexions réseau vers des domaines inconnus","Antivirus qui ne détecte rien"],
+   protect:["Antivirus comportemental","Surveiller les processus msiexec.exe","Ne pas ouvrir les PDFs suspects","EDR avancé"],
+   todo:"Scan avec un EDR comportemental. Analyse les processus msiexec.exe suspects. Isole du réseau si Cobalt Strike détecté. Réinstallation recommandée."},
+
+  {name:"CryptoRom",fr:"CryptoRom",type:"Trojan",threat:4,year:"2021",platforms:["iOS","Android"],
+   desc:"CryptoRom est une arnaque combinant ingénierie sociale (romance sur Tinder/Bumble) et fausse plateforme de trading crypto pour escroquer des milliers de victimes.",
+   does:["Contact romantique sur les réseaux sociaux ou apps de rencontres","Convainc la victime d'investir sur une fausse plateforme crypto","La plateforme affiche de faux gains","Bloque les retraits et demande des 'frais' supplémentaires"],
+   syms:["Rencontre en ligne qui mène rapidement à parler crypto","Plateforme de trading recommandée par la personne","'Gains' importants affichés mais impossibles à retirer","Demandes répétées d'argent pour 'débloquer' les gains"],
+   protect:["Ne jamais investir dans une plateforme recommandée par un inconnu en ligne","Vérifier les plateformes sur l'AMF (autorité des marchés financiers)","Méfiance si la personne refuse les appels vidéo","Ne jamais envoyer d'argent à quelqu'un rencontré en ligne"],
+   todo:"Cesse tout contact avec la personne. Signale à l'AMF et à la police (plainte pour escroquerie). Les fonds investis sont généralement irrécupérables. Contacte ta banque."}
 ];
 
 // ============================================================
@@ -2238,18 +2525,19 @@ function addChatMsg(text,role){
 }
 
 async function sendChat(){
-  if(!rateLimit('chat',10,60000)){
-    addChatMsg('⚠️ Trop de messages. Attends 1 minute.','bot');
+  if(!rateLimit('chat',15,60000)){
+    addChatMsg('⚠️ Trop de messages envoyés. Attends 1 minute.','bot');
     return;
   }
   const inp = document.getElementById('chatInput');
   const rawMsg = inp.value.trim();
   if(!rawMsg) return;
-  const msg = rawMsg.substring(0,500);
+  const msg = rawMsg.substring(0,600);
   trackChat(msg);
   inp.value = '';
   addChatMsg(msg,'user');
   chatHistory.push({role:'user', content:msg});
+
   const typingDiv = document.createElement('div');
   typingDiv.className = 'chat-typing';
   typingDiv.innerHTML = '<span></span><span></span><span></span>';
@@ -2257,46 +2545,100 @@ async function sendChat(){
   chatMsgs.appendChild(typingDiv);
   chatMsgs.scrollTop = 99999;
 
-  const FALLBACKS = [
-    "Un ransomware chiffre tes fichiers et demande une rançon. La meilleure protection : des sauvegardes régulières sur un disque déconnecté !",
-    "Pour te protéger des virus : antivirus à jour, ne jamais ouvrir les pièces jointes inconnues, et activer le 2FA sur tes comptes.",
-    "Si tu penses être infecté, déconnecte le PC du réseau immédiatement, puis lance un scan avec Malwarebytes (gratuit).",
-    "Un cheval de Troie se déguise en logiciel utile. Télécharge toujours depuis les sites officiels !",
-    "Le phishing est la cause n°1 d'infection. Vérifie toujours l'URL avant de saisir tes mots de passe.",
-    "WannaCry, Emotet, Mirai... tu peux chercher n'importe quel virus dans la barre de recherche du site !",
-    "La double authentification (2FA) bloque 99% des tentatives de piratage de compte. Active-la partout !",
-    "Un spyware espionne ton PC sans que tu le saches. Signe d'infection : PC lent, batterie qui se vide, données consommées.",
-    "Pour nettoyer un PC infecté : lance Malwarebytes en mode sans échec, puis mets Windows à jour.",
-    "Les routeurs sont souvent oubliés ! Change le mot de passe admin de ton routeur et mets son firmware à jour."
+  // Système de prompt ultra-spécialisé cybersécurité
+  const SYSTEM_PROMPT = `Tu es VirusBot, l'assistant IA officiel du site VirusWatch (encyclopédie des virus informatiques).
+
+RÈGLES ABSOLUES :
+1. Tu réponds UNIQUEMENT en français
+2. Tu parles UNIQUEMENT de cybersécurité, virus informatiques, protection numérique et sujets liés
+3. Si quelqu'un te demande autre chose (cuisine, sport, politique, etc.), tu réponds : "Je suis spécialisé uniquement en cybersécurité. Pose-moi une question sur les virus, la protection de ton PC ou la cybersécurité !"
+4. Tes réponses sont claires, précises et adaptées à tous les niveaux (débutants et experts)
+5. Tu réponds DIRECTEMENT à la question posée — pas de réponse générique
+6. Tu utilises des exemples concrets et pratiques
+7. Longueur : 2 à 5 phrases selon la complexité de la question
+
+TES DOMAINES D'EXPERTISE (réponds avec précision) :
+- Tous les types de virus : ransomware, trojan, spyware, worm, rootkit, adware, botnet, keylogger
+- Virus spécifiques : WannaCry, Emotet, Stuxnet, Mirai, Pegasus, LockBit, Zeus, Conficker, etc.
+- Protection : antivirus, pare-feu, 2FA, VPN, mises à jour, sauvegardes
+- Que faire si infecté : étapes précises selon le type d'infection
+- Phishing, ingénierie sociale, arnaque en ligne
+- Sécurité des appareils : PC, Mac, Android, iPhone, routeurs, IoT
+- Cryptomonnaies et sécurité des wallets
+- Sécurité des mots de passe et gestionnaires
+- Dark web et menaces émergentes
+- Outils : Malwarebytes, Kaspersky, Bitdefender, NoMoreRansom.org, etc.
+
+FORMAT DE RÉPONSE :
+- Commence toujours par répondre directement à la question
+- Si c'est urgent (infection active), commence par "🚨 URGENT :"
+- Si c'est un conseil, commence par "💡 Conseil :"
+- Si c'est une explication, commence par "🔍 Explication :"
+- Termine souvent par une action concrète que l'utilisateur peut faire maintenant`;
+
+  // Réponses de secours ultra-précises par mots-clés
+  const SMART_FALLBACKS = [
+    {keys:['ransomware','rançon','fichier chiffré','chiffre'],rep:"🚨 Si tes fichiers sont chiffrés : 1) Déconnecte le PC du réseau IMMÉDIATEMENT. 2) Ne paye PAS la rançon. 3) Va sur NoMoreRansom.org pour trouver un déchiffreur gratuit. 4) Restaure depuis une sauvegarde si disponible."},
+    {keys:['wannacry','wanna cry'],rep:"🔍 WannaCry (2017) est un ransomware qui a infecté 230 000 PC en 150 pays en exploitant la faille EternalBlue de Windows. Il chiffre tes fichiers et demande une rançon en Bitcoin. Protection : installe le patch MS17-010 et désactive SMBv1 dans Windows."},
+    {keys:['antivirus','quel antivirus','meilleur antivirus'],rep:"💡 Les meilleurs antivirus en 2024 : Bitdefender (meilleur rapport qualité/prix), Kaspersky (excellent détection), Windows Defender (gratuit et suffisant pour usage basique), Malwarebytes (parfait en complément). Pour nettoyer une infection : Malwarebytes Free est très efficace."},
+    {keys:['infecté','infection','virus sur mon pc','jai un virus','mon pc a un virus'],rep:"🚨 Si tu penses être infecté : 1) Déconnecte du réseau (WiFi et câble). 2) Redémarre en mode sans échec. 3) Lance un scan Malwarebytes (gratuit sur malwarebytes.com). 4) Change tes mots de passe depuis un autre appareil. 5) Mets Windows à jour après nettoyage."},
+    {keys:['phishing','hameçonnage','faux email','arnaque email'],rep:"🔍 Le phishing = faux emails/sites qui imitent des services légitimes (banque, PayPal...). Comment le détecter : regarde l'URL exacte (ex: paypa1.com au lieu de paypal.com), méfie-toi des emails urgents, ne clique jamais sur les liens — va directement sur le site officiel."},
+    {keys:['mot de passe','password','mdp'],rep:"💡 Règles d'or pour les mots de passe : minimum 12 caractères avec majuscules, chiffres et symboles. N'utilise jamais le même sur deux sites. Utilise un gestionnaire : Bitwarden (gratuit), 1Password ou Dashlane. Active TOUJOURS le 2FA en complément."},
+    {keys:['2fa','double authentification','authentification','vérification en 2'],rep:"💡 Le 2FA (double authentification) ajoute une 2e vérification après ton mot de passe. Les types du + au - sécurisé : Clé physique YubiKey > App Authenticator (Google/Microsoft) > SMS. Le 2FA bloque 99% des tentatives de piratage de compte. Active-le sur tous tes comptes importants."},
+    {keys:['trojan','cheval de troie','cheval'],rep:"🔍 Un cheval de Troie se déguise en logiciel utile (jeu piraté, faux Adobe, etc.) pour s'installer. Une fois là, il ouvre un accès secret à ton PC. Protection : télécharge UNIQUEMENT depuis les sites officiels, vérifie les signatures numériques, utilise VirusTotal.com pour scanner les fichiers suspects."},
+    {keys:['spyware','espion','espionné','surveille'],rep:"🔍 Un spyware t'espionne en secret : il enregistre tes frappes clavier, capture ton écran, active ta webcam. Signes d'infection : PC lent, batterie qui se vide vite, données mobiles élevées. Scan avec Malwarebytes + SUPERAntiSpyware. Change tous tes mots de passe depuis un autre appareil."},
+    {keys:['wifi','réseau','routeur'],rep:"💡 Sécuriser ton WiFi : 1) Change le mot de passe admin du routeur (jamais 'admin/admin'). 2) Utilise WPA3 ou WPA2. 3) Cache le nom du réseau (SSID). 4) Mets à jour le firmware du routeur. 5) Crée un réseau séparé pour les appareils IoT. 6) N'utilise jamais le WiFi public sans VPN."},
+    {keys:['vpn'],rep:"💡 Un VPN chiffre ta connexion Internet et masque ton IP. Utile sur WiFi public, pour la confidentialité et accéder à des contenus géobloqués. Bons VPN : Mullvad (le + privé), ProtonVPN (gratuit fiable), ExpressVPN (rapide). Évite les VPN 100% gratuits — ils revendent souvent tes données."},
+    {keys:['sauvegarde','backup','sauvegarder'],rep:"💡 Règle des sauvegardes 3-2-1 : 3 copies de tes données, sur 2 supports différents, dont 1 hors ligne (disque externe déconnecté). C'est la SEULE protection garantie contre les ransomwares. Outils : Windows Backup, Time Machine (Mac), ou Backblaze (cloud). Teste tes sauvegardes régulièrement !"},
+    {keys:['emotet'],rep:"🔍 Emotet était le malware le plus dangereux du monde selon Europol. Il se propagait via des emails très convaincants avec des macros Word, puis installait d'autres malwares (Ryuk, TrickBot). Son infrastructure a été démantelée en 2021 mais des variantes existent encore. Protection : désactive les macros Office."},
+    {keys:['mirai','iot','caméra','routeur infecté'],rep:"🔍 Mirai infecte les appareils IoT (caméras, routeurs) en testant les mots de passe par défaut (admin/admin). Il les transforme en bots pour lancer des attaques DDoS massives. Protection : change IMMÉDIATEMENT les mots de passe par défaut de tous tes appareils connectés et mets à jour leur firmware."},
+    {keys:['dark web','darkweb','données volées','mes données'],rep:"💡 Vérifie si tes données ont été volées sur HaveIBeenPwned.com (gratuit). Si oui : change le mot de passe du service concerné immédiatement, active le 2FA, surveille tes comptes bancaires. Sur le dark web, tes données peuvent être vendues — change les mots de passe similaires sur d'autres sites."},
+    {keys:['crypto','bitcoin','wallet','cryptomonnaie'],rep:"💡 Sécuriser ses cryptos : utilise un hardware wallet (Ledger, Trezor) — tes clés ne quittent jamais l'appareil. Ne stocke JAMAIS tes seeds en photo ou dans le cloud. Méfie-toi des faux sites d'exchange. Vérifie TOUJOURS l'adresse complète avant d'envoyer (les CryptoStealers remplacent les adresses dans le presse-papiers)."},
+    {keys:['android','telephone','smartphone','mobile'],rep:"💡 Sécuriser Android : installe depuis le Play Store uniquement, active Google Play Protect, ne root pas ton téléphone, mets à jour Android régulièrement, vérifie les permissions de chaque app (une lampe torche n'a pas besoin d'accéder à tes contacts), installe un antivirus (Bitdefender Mobile)."},
+    {keys:['iphone','ios','apple','mac'],rep:"💡 iPhone/iOS est très sécurisé par défaut mais pas invulnérable. Active le Lockdown Mode si tu es une cible potentielle (iOS 16+). Mets à jour iOS dès que possible (les failles sont corrigées rapidement). Méfie-toi des profils MDM suspects dans Réglages > Général > VPN. N'installe pas d'apps hors App Store."},
+    {keys:['pegasus','spyware gouvernement','espionnage téléphone'],rep:"🔍 Pegasus est le spyware le + sophistiqué : infection sans clic, accès à tout (messages, micro, caméra). Il cible journalistes et militants. Détection : outil MVT d'Amnesty International. Protection : active le Lockdown Mode d'Apple (iOS 16+), redémarre ton téléphone régulièrement (ralentit Pegasus), mets à jour immédiatement."},
+    {keys:['que faire','comment','aide','help','comment faire'],rep:"💡 Je suis là pour t'aider ! Pose-moi ta question précise sur la cybersécurité : un virus spécifique, comment te protéger, que faire si tu es infecté, comment sécuriser un appareil... Plus ta question est précise, plus ma réponse sera utile !"},
   ];
+
+  // Fonction de réponse intelligente locale
+  function getSmartFallback(question) {
+    const q = question.toLowerCase();
+    for(const fb of SMART_FALLBACKS) {
+      if(fb.keys.some(k => q.includes(k))) return fb.rep;
+    }
+    // Réponse générique cybersécurité si aucun mot-clé trouvé
+    return "💡 Bonne question ! Pour une réponse précise, essaie de mentionner : le nom du virus, le problème exact que tu rencontres, ou l'appareil concerné (PC, téléphone...). Tu peux aussi utiliser la barre de recherche du site pour trouver des informations détaillées sur un virus spécifique.";
+  }
 
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(()=>controller.abort(), 15000); // 15s timeout
+    const timeout = setTimeout(()=>controller.abort(), 20000);
     const r = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       signal: controller.signal,
       headers: {"Content-Type":"application/json"},
       body: JSON.stringify({
         model: "claude-sonnet-4-20250514",
-        max_tokens: 400,
-        system: "Tu es VirusBot, un assistant expert en cybersécurité intégré au site VirusWatch. Réponds en français, clairement et de façon concise (2-3 phrases max). Tu expliques les virus, comment se protéger, et donnes des conseils pratiques. Sois amical et accessible pour tous les niveaux.",
-        messages: chatHistory.slice(-8)
+        max_tokens: 500,
+        system: SYSTEM_PROMPT,
+        messages: chatHistory.slice(-10)
       })
     });
     clearTimeout(timeout);
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data = await r.json();
-    if(!data.content||!data.content.length) throw new Error('Empty response');
+    if(!data.content||!data.content.length) throw new Error('vide');
     const reply = data.content.map(b=>b.text||'').join('').trim();
-    if(!reply) throw new Error('Empty text');
+    if(!reply) throw new Error('texte vide');
     typingDiv.remove();
     chatHistory.push({role:'assistant', content:reply});
     addChatMsg(reply,'bot');
   } catch(err) {
     typingDiv.remove();
-    const fallback = FALLBACKS[Math.floor(Math.random()*FALLBACKS.length)];
-    addChatMsg('💡 ' + fallback, 'bot');
+    // Fallback intelligent basé sur les mots-clés de la question
+    const smartReply = getSmartFallback(msg);
+    chatHistory.push({role:'assistant', content:smartReply});
+    addChatMsg(smartReply,'bot');
   }
 }
 
